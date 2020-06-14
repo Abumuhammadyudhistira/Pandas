@@ -1,0 +1,13 @@
+1. Pandas Data Visualization
+	df1['A'].hist(bins=30)
+	df1['A'].plot(kind='hist')
+	df1['A'].plot.hist()
+	df2.plot.area()
+	df2.plot.bar()
+	df1.plot.line()
+	df1.plot.scatter()
+	df2.plot.box()
+	df.plot.hexbin()
+	df['a'].plot.kde()
+	df['a'].plot.density()
+	
