@@ -1,0 +1,74 @@
+1. Series 
+	ser1 = pd.Series(data=[10,20,30],index=['A','B','C']) # data, index
+	=> A    10
+	   B	20
+	   C	30
+	ser1['A'] = 10 # indexing
+	* / + -
+
+
+2. DataFrames
+	df = pd.DataFrame(randn(5,4),['A','B','C','D','E'],['W','X','Y','Z']) # (values,row,column)
+	df['W'] => column 'W' content
+	df[['W','Z']] => column 'W' and 'Z" to choose 2 columns use 2 bracket
+	df.drop()
+	df.shape
+	df.loc['C'] => row 'C' content
+	df.iloc[2] => selecting row by index
+	df[boolean]
+	df[df['W']>0]['Y']
+	df[(df['W']>0) & (df['Y']>1)] # Don't use 'and' 'or'
+	df[(df['W']>0) | (df['Y']>1)]
+	df.reset_index() # previous index will become column
+	df.set_index() # Set a column to be index
+	df.index.names
+	df.xs()
+
+
+3. Missing Data
+	df.dropna() # remove row if any NaN/missing point
+	df.fillna() # input data to NaN value
+	
+
+4. Groupby
+	df.groupby()
+	df.groupby().mean()
+	df.groupby().std()
+	df.groupby().describe()
+	df.groupby().describe().transpose()
+	
+
+5. Merging, Joining, Concatening
+	pd.concat([df1,df2,df3]) # Mix in one data frame for axis = 0
+	pd.concat([df1,df2,df3],axis=1)
+	# Dictionaries also can be a data frame, key as column, value as data
+	pd.merge(df1,df2,how='inner',on='key')
+	df1.join(df2)
+
+
+6. Operations
+	df['A'].unique()
+	df['A'].nunique()
+	df['A'].value_counts() # how many times data in a column show up
+	df['A'].apply(func) # apply function to specific column
+	df['A'].apply(len)
+	df['A'].apply(lambda x: x*2)
+	del df['A'] # permanently delete column
+	df.columns
+	df.index
+	df.sort_values()
+	df.isnull() # looking for NaN data
+	df.pivot_table()
+
+
+7. Data Input & Output
+	df = pd.read_csv('text')
+	df.to_csv() # df table become csv file
+	pd.read_excel()
+	df.to_excel()
+	pd.read_html()
+	engine = create_engine('sqlite:///:memory:')
+	df.to_sql('my_table',engine)
+	sql_df = pd.read_sql('my_table',con=engine)
+		
+	
