@@ -13,7 +13,7 @@
 	df[['W','Z']] => column 'W' and 'Z" to choose 2 columns use 2 bracket
 	df.drop()
 	df.shape
-	df.loc['C'] => row 'C' content
+	df.loc['C'] => 'C' is the name of the index or identity
 	df.iloc[2] => selecting row by index
 	df[boolean]
 	df[df['W']>0]['Y']
