@@ -36,6 +36,8 @@
 	df.groupby().std()
 	df.groupby().describe()
 	df.groupby().describe().transpose()
+	df.groupby('The grouping column')['The grouped column'].describe() # aggregate function
+	# you want to apply to the grouped column
 	
 
 5. Merging, Joining, Concatening
