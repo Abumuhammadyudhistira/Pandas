@@ -8,13 +8,31 @@
 
 
 2. DataFrames
+	# creating a dataframe
 	df = pd.DataFrame(randn(5,4),['A','B','C','D','E'],['W','X','Y','Z']) # (values,row,column)
-	df['W'] => column 'W' content
+	# calling 'W' column
+	df['W']
+	# checking type of pandas series
+	type(df['W']
+	# checking type dataframe
+	type(df)
+	
+	# calling multiple column
 	df[['W','Z']] => column 'W' and 'Z" to choose 2 columns use 2 bracket
-	df.drop()
+	# you can do some arithmetic
+	df['new'] = df['W'] + df['Y']
+	# delete row and column (axis=1 for column,axis=0 for row, inplace for permanent)
+	df.drop('A',axis=1,inplace=True)
+	df.drop('E',axis=0,inplace=True)
+	# matrix shape (row x column)
 	df.shape
+	# calling rows
 	df.loc['C'] => 'C' is the name of the index or identity
-	df.iloc[2] => selecting row by index
+	df.iloc[2] => selecting row by numerical index position
+	df.loc['B','Y'] => row B column Y
+	df.loc[['A'],['B']] => row A column B
+	# using boolean 
+	df > 0 => will result True or False
 	df[boolean]
 	df[df['W']>0]['Y']
 	df[(df['W']>0) & (df['Y']>1)] # Don't use 'and' 'or'
@@ -41,10 +59,16 @@
 	
 
 5. Merging, Joining, Concatening
-	pd.concat([df1,df2,df3]) # Mix in one data frame for axis = 0
+	# Mix in one data frame for axis = 0
+	# shape should be the same
+	pd.concat([df1,df2,df3]) 
 	pd.concat([df1,df2,df3],axis=1)
+	
 	# Dictionaries also can be a data frame, key as column, value as data
+	# merge a bit similar with full outer join
 	pd.merge(df1,df2,how='inner',on='key')
+	
+	# join a bit similar with inner merge except your key is in index
 	df1.join(df2)
 
 
