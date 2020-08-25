@@ -81,26 +81,39 @@
 	pd.concat([df1,df2,df3],axis=1)
 	
 	# Dictionaries also can be a data frame, key as column, value as data
-	# merge a bit similar with full outer join
-	pd.merge(df1,df2,how='inner',on='key')
+	# merge similar with join in SQL, can be inner, outer, left, right
+	pd.merge(df1,df2,how='inner',on='key') # or you can
+	pd.merge(df1,df2,how='inner',on=['key1','key2'])
 	
 	# join a bit similar with inner merge except your key is in index
+	# df1 and df2 have the same index
 	df1.join(df2)
 
 
 6. Operations
+	# mention every unique data from column 'A'
 	df['A'].unique()
+	# count how much unique value from column 'A'
 	df['A'].nunique()
-	df['A'].value_counts() # how many times data in a column show up
-	df['A'].apply(func) # apply function to specific column
+	# how many times data in a column show up
+	df['A'].value_counts() 
+	# apply function to specific column
+	df['A'].apply(func) 
 	df['A'].apply(len)
 	df['A'].apply(lambda x: x*2)
-	del df['A'] # permanently delete column
+	
+	# permanently delete column
+	del df['A'] 
+	# mention every columns name
 	df.columns
+	# mention every index name
 	df.index
+	# sort similar with SQL
 	df.sort_values()
-	df.isnull() # looking for NaN data
-	df.pivot_table()
+	# checking if it is True that data is NULL
+	df.isnull() 
+	# column D become values/datas inserted, 'A' and 'B' become index, and data inside'C' become column
+	df.pivot_table(values='D',index=['A', 'B'],columns=['C'])
 
 
 7. Data Input & Output
