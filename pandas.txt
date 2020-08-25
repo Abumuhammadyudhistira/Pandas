@@ -37,7 +37,6 @@
 	df[df['W']>0]['Y']
 	df[(df['W']>0) & (df['Y']>1)] # Don't use 'and' 'or'
 	df[(df['W']>0) | (df['Y']>1)]
-	df.reset_index() # previous index will become column
 	df.set_index() # Set a column to be index
 	df.index.names
 	df.xs()
@@ -57,7 +56,9 @@
 	df.groupby(['The grouping column'])['The grouped column'].describe() # aggregate function
 	# grouping with two features
 	df.groupby(['W','X'])['Y'].mean() # 'W' first then 'X'
-	# you want to apply to the grouped column
+	# the features which was created as index turn to be column again with the most right position
+	df = df.reset_index(level='X') # then
+	df = df.reset_index(level='W')
 	
 
 5. Merging, Joining, Concatening
