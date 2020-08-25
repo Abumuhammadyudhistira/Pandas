@@ -1,8 +1,9 @@
-1. Series 
+1. Series (almost similar with numpy array, but it allows indexing)
 	ser1 = pd.Series(data=[10,20,30],index=['A','B','C']) # data, index
 	=> A    10
 	   B	20
 	   C	30
+	# data not only numbers but also list, dictionary, string etc
 	ser1['A'] = 10 # indexing
 	* / + -
 
@@ -19,27 +20,34 @@
 	
 	# calling multiple column
 	df[['W','Z']] => column 'W' and 'Z" to choose 2 columns use 2 bracket
-	# you can do some arithmetic
+	# you can do some arithmetic with creating new column
 	df['new'] = df['W'] + df['Y']
+	
 	# delete row and column (axis=1 for column,axis=0 for row, inplace for permanent)
-	df.drop('A',axis=1,inplace=True)
-	df.drop('E',axis=0,inplace=True)
+	df.drop('W',axis=1,inplace=True) # 'A' is column
+	df.drop('E',axis=0,inplace=True) # 'E' is index(row)
 	# matrix shape (row x column)
 	df.shape
+	
 	# calling rows
 	df.loc['C'] => 'C' is the name of the index or identity
 	df.iloc[2] => selecting row by numerical index position
 	df.loc['B','Y'] => row B column Y
-	df.loc[['A'],['B']] => row A column B
+	df.loc[['A','B'],['X','Y']] => row A column B
+	
 	# using boolean 
 	df > 0 => will result True or False
 	df[boolean]
 	df[df['W']>0]['Y']
 	df[(df['W']>0) & (df['Y']>1)] # Don't use 'and' 'or'
 	df[(df['W']>0) | (df['Y']>1)]
-	df.set_index() # Set a column to be index
+	
+	# Set a column to be index
+	df.set_index()
+	
+	# checking names of index
 	df.index.names
-	df.xs()
+	df.xs(['G1','1']) => another way to call data based on index data (not index name)
 
 
 3. Missing Data
