@@ -54,7 +54,9 @@
 	df.groupby().std()
 	df.groupby().describe()
 	df.groupby().describe().transpose()
-	df.groupby('The grouping column')['The grouped column'].describe() # aggregate function
+	df.groupby(['The grouping column'])['The grouped column'].describe() # aggregate function
+	# grouping with two features
+	df.groupby(['W','X'])['Y'].mean() # 'W' first then 'X'
 	# you want to apply to the grouped column
 	
 
