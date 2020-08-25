@@ -117,11 +117,17 @@
 
 
 7. Data Input & Output
+	# csv
 	df = pd.read_csv('text')
-	df.to_csv() # df table become csv file
+	df.to_csv()
+	# excel
 	pd.read_excel()
 	df.to_excel()
+	# html
 	pd.read_html()
+	
+	#SQL using sqlalchemy
+	from sqlalchemy import create_engine
 	engine = create_engine('sqlite:///:memory:')
 	df.to_sql('my_table',engine)
 	sql_df = pd.read_sql('my_table',con=engine)
