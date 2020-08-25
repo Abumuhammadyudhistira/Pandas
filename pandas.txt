@@ -48,6 +48,9 @@
 	# checking names of index
 	df.index.names
 	df.xs(['G1','1']) => another way to call data based on index data (not index name)
+	
+	# turn selected data to be index
+	df = df[(df['W']>0) | (df['Y']>1)].index  => now df can be used as index 
 
 
 3. Missing Data
