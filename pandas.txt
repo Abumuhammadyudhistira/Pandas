@@ -51,8 +51,13 @@
 
 
 3. Missing Data
-	df.dropna() # remove row if any NaN/missing point
-	df.fillna() # input data to NaN value
+	# remove row if any NaN/missing point
+	df.dropna(thresh=2) => thresh means drop if at least 2 NaN exist in a column 
+	# remove column if any NaN
+	df.dropna(axis=1)
+	
+	# input data to NaN value
+	df.fillna('FILL IT') 
 	
 
 4. Groupby
